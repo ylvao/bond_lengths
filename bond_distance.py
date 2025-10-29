@@ -1,5 +1,5 @@
 # ===============================================================
-# Bonds distances
+# Bond distances
 # ===============================================================
 # Finds bond distance between all atoms in a .xyz file
 # and creates a dictionary with information of all atoms in 
