@@ -38,8 +38,9 @@ def format_molecule_to_dict(file):
     with open(f"{file}.xyz", "r") as f:
         geomfile = f.readlines()
         n_atoms = int(geomfile[0])
+        geomfile2 = [i for i in geomfile if i not in ["\n"]]
         for i in range(1, n_atoms + 1):
-            line = geomfile[-i].strip()
+            line = geomfile2[-i].strip()
             atoms_raw.append(line)
 
     # Reformats lines in atoms_raw to a dictionary
@@ -51,7 +52,7 @@ def format_molecule_to_dict(file):
     
         atoms_collected.append({"element": element, "x": x, "y": y, "z": z})
 
-    # Reveres list as to get atomes ordered from top to match xyz file
+    # Reveres list as to get atoms ordered from top to match xyz file
     atoms_collected.reverse()
 
     # Counts number of each element, labels them and combines all atoms for the final dict
